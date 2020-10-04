@@ -1,0 +1,34 @@
+.errorr {
+    position: sticky;
+    top: -1em;
+    left: 20em;
+    padding: .5em 1em .4em;
+    background-color:rgb(30, 165, 255);
+    border-radius: 5px;
+    color: #fff;
+    visibility:hidden;
+}
+.errorr::after,
+.errorr::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 15px;
+    border: solid transparent;
+}
+.errorr::after {
+    margin-left: 1px;
+    border-top-color: #fff;
+    border-width: 7px;
+}
+.errorr::before {
+    border-top-color: #000;
+    border-width: 8px;
+}
+.er{
+    display:inline;
+    color: rgb(31, 216, 102);
+    font-weight: bolder;
+    font-size: 25px;
+}
+

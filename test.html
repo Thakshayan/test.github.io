@@ -1,0 +1,68 @@
+<script>
+
+    var x = {"page":"13","per_page":10,"total":125,"total_pages":13,"data":[{"competition":"UEFA Champions League","year":2015,"round":"SF","team1":"Manchester City","team2":"Real Madrid","team1goals":"0","team2goals":"0"},{"competition":"UEFA Champions League","year":2015,"round":"SF","team1":"Atletico Madrid","team2":"Bayern Munich","team1goals":"1","team2goals":"0"},{"competition":"UEFA Champions League","year":2015,"round":"SF","team1":"Bayern Munich","team2":"Atletico Madrid","team1goals":"2","team2goals":"1"},{"competition":"UEFA Champions League","year":2015,"round":"SF","team1":"Real Madrid","team2":"Manchester City","team1goals":"1","team2goals":"0"},{"competition":"UEFA Champions League","year":2015,"round":"final","team1":"Real Madrid","team2":"Atletico Madrid","team1goals":"6","team2goals":"4"}]}
+    document.write(x.data[0].team1);
+</script>
+
+'use strict';
+
+const fs = require('fs');
+const https = require('https');
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', function(inputStdin) {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', function() {
+    inputString = inputString.split('\n');
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+async function getTeams(year, k) {
+    // write your code here
+    // API endpoint template: https://jsonmock.hackerrank.com/api/football_matches?competition=UEFA%20Champions%20League&year=<YEAR>&page=<PAGE_NUMBER>
+    https.get(`https://jsonmock.hackerrank.com/api/football_matches?competition=UEFA%20Champions%20League&year=${year}&page=${1}`, (resp) => {
+        let tPage = resp.total_pages;
+        let teams ={}
+        for (var a=1; a<=tPage;a++){
+            https.get(`https://jsonmock.hackerrank.com/api/football_matches?competition=UEFA%20Champions%20League&year=${year}&page=${a}`, (resp1) => {
+                resp1.data.forEach(function(entry) {
+                    let t1 = entry.team1;
+                    let t2 = entry.team2;
+                    if (t1 in teams){
+                        teams.t1 = teams.t1 + 1;
+                    }
+                    else{
+                        teams.t1 = 1;
+                    }
+                    if (t2 in teams){
+                        teams.t2 = teams.t2 + 1;
+                    }
+                    else{
+                        teams.t2 = 1;
+                    }
+                })
+            })
+        }
+        let teamRes = []
+        Object.keys(teamRes).forEach(key => {
+            if(teams[key] > 6){
+                teamRes.push(key);
+            }
+        })
+        return teamRes;
+    });
+}
+
+async function main() {

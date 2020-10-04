@@ -1,0 +1,194 @@
+@charset "utf-8";
+/* CSS Document */
+
+/******************************
+
+[Table of Contents]
+
+1.Map
+
+******************************/
+
+/*********************************
+1. Map
+*********************************/
+
+#maps .centerMarker 
+{
+	position: absolute;
+	/*url of the marker*/
+	background: url(images/gmappin.png) no-repeat;
+	/*center the marker*/
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	/*fix offset when needed*/
+	margin-left: -10px;
+	margin-top: -34px;
+	/*size of the image*/
+	height: 34px;
+	width: 20px;
+	cursor: pointer;
+}
+
+.Map_session
+{
+	margin-top: 95px;
+	margin-bottom: 95px;
+	width:100%;
+	padding-left: 50px;
+	padding-right: 75px;
+}
+
+.Map_title
+{
+	text-align: center;
+	background-color: white !important;
+	color: black !important;
+	margin-bottom: 40px;
+}
+
+.column
+{
+	float: left;
+	padding-left: 10px;	
+	padding-right: 10px;
+}
+
+.Map_text
+{
+	width: 25%;
+	background-color: aliceblue;
+
+}
+
+.Map_text_title
+{
+	color: #72728c;
+	height: 50px;
+	padding-left: 17px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 30px !important;
+	font-weight: 500 !important;
+	margin-bottom: 40px;
+	text-align: center;
+
+	/*
+	animation-name: movement;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 5s;
+
+	-webkit-animation-duration: 5s;
+	-webkit-animation-name: movement;
+	-webkit-animation-duration: 5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: ease-in;
+	*/
+	
+}
+
+.map_form
+{
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.Map_image
+{
+	width: 75%;
+	height: 100%;
+}
+
+.map_select_train
+{
+
+	margin-bottom: 20px;
+	width: 100% !important;
+}
+
+.map_search_button
+{
+	/*
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	*/
+	width: 100% !important;
+	margin-bottom: 40px;
+}
+
+.map_message
+{
+	color:#72728c;
+	font-size: 20px;
+	font-family: 'Oswald', sans-serif;
+	padding:15px;
+	margin-bottom: 20px;
+	text-align: center;
+
+}
+
+.map_refresh_button
+{
+	display: block;
+	margin-left: auto!important;
+	margin-right: auto!important;
+}
+
+
+.location_button
+{
+	text-align: center;
+	cursor: pointer;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+	height: 40px !important;
+	width: 40px !important;
+	border-radius: 5px!important;
+	margin-bottom: 10px;
+	border-color: black;
+	padding:3px;
+	background-color: white;
+
+
+}
+
+.location_button:hover
+{
+
+	background-color: black;
+}
+
+.location_button:hover .location_img
+{
+	filter: invert(100%);
+	-webkit-filter: invert(100%);
+}
+
+.location_img
+{
+	height: 20px ;
+	width: 20px ;
+	
+}
+
+
+/* .location_img:hover
+{
+	filter: invert(100%);
+	-webkit-filter: invert(100%);
+} */
+/*
+@keyframes movement
+{
+	from {left: -100%;}
+	to {left: 100%;}
+}
+*/
+
+
